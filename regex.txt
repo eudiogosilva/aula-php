@@ -1,0 +1,30 @@
+regexr.com
+regex101.com
+
+---------
+
+
+/^[^@]+@[^@]+.com$/g
+
+^ -> início da linha/string
+$ -> fim da linha/string
+[^caracter] --> n pode possuir esse caracter
+
+[am R] --> busca todas as ocorrências destes caracteres (a,m,espaço e R)
+[0-9A-Za-z] --> busca todas as ocorrências deste intervalo
+
+[\w] --> busca todas as ocorrências de alfanuméricos
+[\s]+ --> espaços (1 ou mais)
+\/ --> indica que usaremos o caracter '/'
+[\d] --> qualquer caracter numérico [0-9]
+
+[\d]{2}\/[\d]{2}\/[\d]{2,4} --> data
+
+[Tt]e[xs]ts? --> ? indica q um caracter é opcional
+
+\be --> qualquer e no início de palavra
+e\b --> qualquer e no fim de palavra
+\w*[eé]\b --> qualquer palavra com e ou é no fim
+\w*[eé]\B --> qlqr palavra que NÃO tenha e ou é no fim
+
+<title>([\w ]+)<\/title> --> pega tudo dentro das tags <title></title>
