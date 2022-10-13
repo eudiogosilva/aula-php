@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+
+        <form>
+            <input type="file" name="arquivo" onchange="carregaArquivos(this)" multiple>
+        </form>
+
+        <script>
+            //temporário
+            sessionStorage.clear();
+            sessionStorage.setItem('pi', 3.14);
+            sessionStorage['diogo@gmail.com'] = 'S3nh@D1f1c1|';
+            sessionStorage.luis = 'paçoca';
+
+            document.write("Armazenamento " + "temporário: sessionStorage", "<br/>");
+
+            for(var i = 0; i < sessionStorage.length; i++){
+                var chave = sessionStorage.key(i);
+                document.write(chave, ":", sessionStorage.getItem(chave), "<br/>");
+            }
+
+            //permanente
+            localStorage.clear();
+            localStorage.setItem('pi', 3.14);
+            localStorage['diogo@gmail.com'] = 'S3nh@D1f1c1|';
+            localStorage.luis = 'paçoca';
+
+            document.write("<br/>Armazenamento " + "temporário: localStorage", "<br/>");
+
+            for(var i = 0; i < sessionStorage.length; i++){
+                var chave = localStorage.key(i);
+                document.write(chave, ":", localStorage.getItem(chave), "<br/>");
+            }
+
+            document.write("<br/><br/>");
+
+            function armazenamentoJSON(){
+                var robo = {
+                    nome: 'XandTron',
+                    memoria: '150TB',
+                    altura: '18X',
+                    fabricante: 'Lucas LTD'
+                };
+
+                var celular = {
+                    modelo: 'Nokia Tijolão',
+                    fabricante: 'Nokia',
+                    peso: '5kg',
+                    ano: 2001
+                };
+
+                var cadeiraGamer = {
+                    parafusos: [1, 2, 3],
+                    fabricante: 'Razer',
+                    modelo: 'MX2000',
+                    preco: 5000.00
+                };
+
+                var arrObjs = [robo, celular, cadeiraGamer];
+
+                localStorage.clear();
+                localStorage.cadastro = JSON.stringify(arrObjs);
+
+                document.write(localStorage.cadastro);
+
+                return localStorage.cadastro;
+            }
+
+            function carregaArquivo(input){
+                var arquivo = input.files[0];
+
+                var dadosArquivo = "";
+
+                for(var campo in arquivo){
+                    dadosArquivo += campo + ': ' + arquivo[campo] + '\n';
+                }
+
+                alert(dadosArquivo);
+            }
+
+            function carregaArquivos(input){
+                var arquivos = input.files;
+
+                var dadosArquivo = "";
+
+                for(var i = 0; i < arquivos.length; i++){
+                    dadosArquivo += arquivos[i].name + "(" + arquivos[i].type + ")" + arquivos[i].size + " bytes, modificado em: " + arquivos[i].lastModifiedDate + "\n\n";
+                }
+
+                alert(dadosArquivo);
+            }
+
+        </script>
+    </body>
+</html>
