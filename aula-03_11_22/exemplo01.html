@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Morra JQuery</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <style>
+    div{
+        margin: 16px;
+        padding: 16px;
+        border: 1px solid silver;
+        border-radius: 4px;
+        box-shadow: 1px 1px 4px;
+        background: linear-gradient(to bottom, #fff 0%, #eee 100%)
+    }
+    .vermelho {
+        color: red;
+    }
+    .arrendodado {
+        border-radius: 32px;
+    }
+    </style>
+</head>
+<body>
+    
+<div onclick="$(this).hide(1000)" id="ocultada">
+    Clique para ocultar o texto
+</div>
+
+<input type="button" value="Exibir texto" onclick="$('#ocultada').show()">
+
+<div id="fade" onclick="$(this).fadeOut(500)">
+    Clique para desvanecer
+</div>
+
+<input type="button" value="Clique para esvanecer" onclick="$('#fade').fadeIn(500)">
+<input type="button" value="Clique para deslizar" onclick="$('#fade').slideToggle(500)">
+
+<div onclick="$(this).animate({
+    fontSize: '20px'}, 2000, function(){
+        $(this).html('Texto aumentado')
+    })">
+    Clique para aumentar
+</div>
+
+<input type="button" value="Clique para movimentar" onclick="$(this).animate({marginLeft: '500px'}, 1000, function(){
+    $(this).animate({marginLeft: '0px'}, 1000)
+})">
+
+</body>
+</html>
